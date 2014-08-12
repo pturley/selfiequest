@@ -1,0 +1,17 @@
+%h1 Listing selfies
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @selfies.each do |selfy|
+    %tr
+      %td= link_to 'Show', selfy
+      %td= link_to 'Edit', edit_selfy_path(selfy)
+      %td= link_to 'Destroy', selfy, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Selfie', new_selfy_path

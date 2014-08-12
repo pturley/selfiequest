@@ -1,0 +1,10 @@
+= form_for @selfy do |f|
+  - if @selfy.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@selfy.errors.count, "error")} prohibited this selfy from being saved:"
+      %ul
+        - @selfy.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'
