@@ -1,5 +1,5 @@
 class SelfiesController < ApplicationController
-  before_action :set_selfy, only: [:show, :edit, :update, :destroy]
+  before_action :set_selfie, only: [:show, :edit, :update, :destroy]
 
   # GET /selfies
   # GET /selfies.json
@@ -14,7 +14,7 @@ class SelfiesController < ApplicationController
 
   # GET /selfies/new
   def new
-    @selfy = Selfie.new
+    @selfie = Selfie.new
   end
 
   # GET /selfies/1/edit
@@ -24,15 +24,15 @@ class SelfiesController < ApplicationController
   # POST /selfies
   # POST /selfies.json
   def create
-    @selfy = Selfie.new(selfy_params)
+    @selfie = Selfie.new(selfie_params)
 
     respond_to do |format|
-      if @selfy.save
-        format.html { redirect_to @selfy, notice: 'Selfie was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @selfy }
+      if @selfie.save
+        format.html { redirect_to @selfie, notice: 'Selfie was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @selfie }
       else
         format.html { render action: 'new' }
-        format.json { render json: @selfy.errors, status: :unprocessable_entity }
+        format.json { render json: @selfie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class SelfiesController < ApplicationController
   # PATCH/PUT /selfies/1.json
   def update
     respond_to do |format|
-      if @selfy.update(selfy_params)
-        format.html { redirect_to @selfy, notice: 'Selfie was successfully updated.' }
+      if @selfie.update(selfie_params)
+        format.html { redirect_to @selfie, notice: 'Selfie was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @selfy.errors, status: :unprocessable_entity }
+        format.json { render json: @selfie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +54,7 @@ class SelfiesController < ApplicationController
   # DELETE /selfies/1
   # DELETE /selfies/1.json
   def destroy
-    @selfy.destroy
+    @selfie.destroy
     respond_to do |format|
       format.html { redirect_to selfies_url }
       format.json { head :no_content }
@@ -63,12 +63,12 @@ class SelfiesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_selfy
-      @selfy = Selfie.find(params[:id])
+    def set_selfie
+      @selfie = Selfie.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def selfy_params
-      params[:selfy]
+    def selfie_params
+      params[:selfie]
     end
 end

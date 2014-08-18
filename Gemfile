@@ -16,6 +16,8 @@ gem 'pg'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.2'
+  gem 'factory_girl_rails', '~> 4.4.1'
+  gem 'pry-rails', '~> 0.3.2'
 end
 
 group :production do
