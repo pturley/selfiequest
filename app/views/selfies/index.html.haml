@@ -6,12 +6,12 @@
     %th
     %th
 
-  - @selfies.each do |selfy|
+  - @selfies.each do |selfie|
     %tr
-      %td= link_to 'Show', selfy
-      %td= link_to 'Edit', edit_selfy_path(selfy)
-      %td= link_to 'Destroy', selfy, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', selfie
+      %td= link_to 'Edit', edit_selfie_path(selfie)
+      %td= link_to 'Destroy', selfie, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Selfie', new_selfy_path
+= link_to 'New Selfie', new_selfie_path

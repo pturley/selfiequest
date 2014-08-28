@@ -1,4 +1,4 @@
-json.array!(@selfies) do |selfy|
-  json.extract! selfy, :id
-  json.url selfy_url(selfy, format: :json)
+json.array!(@selfies) do |selfie|
+  json.extract! selfie, :id
+  json.url selfie_url(selfie, format: :json)
 end

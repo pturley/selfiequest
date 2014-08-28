@@ -1,9 +1,9 @@
-= form_for @selfy do |f|
-  - if @selfy.errors.any?
+= form_for @selfie do |f|
+  - if @selfie.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@selfy.errors.count, "error")} prohibited this selfy from being saved:"
+      %h2= "#{pluralize(@selfie.errors.count, "error")} prohibited this selfie from being saved:"
       %ul
-        - @selfy.errors.full_messages.each do |msg|
+        - @selfie.errors.full_messages.each do |msg|
           %li= msg
 
   .actions
