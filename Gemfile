@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.4'
-gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.2'
 gem 'haml-rails', '~> 0.5.3'
 gem 'uglifier', '>= 1.3.0'
@@ -15,6 +14,7 @@ gem 'puppet'
 gem 'pg'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 3.0.2'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'pry-rails', '~> 0.3.2'
