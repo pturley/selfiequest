@@ -6,5 +6,6 @@
         - @selfie.errors.full_messages.each do |msg|
           %li= msg
 
+  = f.file_field :image
   .actions
     = f.submit 'Save'

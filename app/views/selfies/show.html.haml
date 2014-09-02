@@ -1,5 +1,9 @@
 %p#notice= notice
 
+= image_tag @selfie.image.url
+= image_tag @selfie.image.url(:medium)
+= image_tag @selfie.image.url(:thumb)
+
 
 = link_to 'Edit', edit_selfie_path(@selfie)
 \|

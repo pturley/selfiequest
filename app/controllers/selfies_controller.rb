@@ -69,6 +69,6 @@ class SelfiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def selfie_params
-      params[:selfie]
+      params.require(:selfie).permit(:image)
     end
 end

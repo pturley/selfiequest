@@ -5,7 +5,7 @@ exec { 'apt-update':
 
 Exec["apt-update"] -> Package <| |>
 
-package { ["libpq-dev", "sqlite3", "libsqlite3-dev"]: ensure => present }
+package { ["libpq-dev", "sqlite3", "libsqlite3-dev", "imagemagick"]: ensure => present }
 
 class { 'rbenv':
   install_dir => '/opt/rbenv',

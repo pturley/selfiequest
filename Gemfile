@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'librarian-puppet', '~> 1.1.2'
 gem 'puppet'
 gem 'pg'
+gem "paperclip", "~> 4.2"
 
 group :development, :test do
   gem 'sqlite3'

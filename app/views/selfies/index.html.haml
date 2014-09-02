@@ -5,9 +5,11 @@
     %th
     %th
     %th
+    %th
 
   - @selfies.each do |selfie|
     %tr
+      %td= image_tag selfie.image.url(:thumb)
       %td= link_to 'Show', selfie
       %td= link_to 'Edit', edit_selfie_path(selfie)
       %td= link_to 'Destroy', selfie, :method => :delete, :data => { :confirm => 'Are you sure?' }

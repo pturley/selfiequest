@@ -19,3 +19,4 @@ modules/*
 .librarian
 .tmp
 .vagrant
+public/system
