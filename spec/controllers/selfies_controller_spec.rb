@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe SelfiesController, :type => :controller do
   let(:valid_attributes) {
-    {}
+    {image_file_size: "400"}
   }
 
   let(:invalid_attributes) {
