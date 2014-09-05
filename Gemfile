@@ -21,6 +21,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.2'
 end
 
-group :production do
+group :staging, :production do
   gem 'rails_12factor'
+  gem 'aws-sdk'
 end
