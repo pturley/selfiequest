@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902222945) do
+ActiveRecord::Schema.define(version: 20140909230529) do
+
+  create_table "quests", force: true do |t|
+    t.string   "name"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "selfies", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +28,9 @@ ActiveRecord::Schema.define(version: 20140902222945) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "quest_id"
   end
+
+  add_index "selfies", ["quest_id"], name: "index_selfies_on_quest_id"
 
 end

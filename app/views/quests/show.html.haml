@@ -1,0 +1,13 @@
+%p#notice= notice
+
+Name
+= @quest.name
+Start
+= @quest.start
+End
+= @quest.end
+
+
+= link_to 'Edit', edit_quest_path(@quest)
+\|
+= link_to 'Back', quests_path

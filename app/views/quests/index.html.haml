@@ -1,0 +1,23 @@
+%h1 Listing quest
+
+%table
+  %tr
+    %th Name
+    %th Start
+    %th End
+    %th
+    %th
+    %th
+
+  - @quests.each do |quest|
+    %tr
+      %td= quest.name
+      %td= quest.start
+      %td= quest.end
+      %td= link_to 'Show', quest
+      %td= link_to 'Edit', edit_quest_path(quest)
+      %td= link_to 'Destroy', quest, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Quest', new_quest_path
