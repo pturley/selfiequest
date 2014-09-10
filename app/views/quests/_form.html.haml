@@ -7,8 +7,8 @@
           %li= msg
 
   = f.text_field :name
-  = f.text_field :start_datetime
-  = f.text_field :end_datetime
+  = f.text_field :start_datetime, :class => "datetimepicker"
+  = f.text_field :end_datetime, :class => "datetimepicker"
 
   .actions
     = f.submit 'Save'
