@@ -1,6 +1,7 @@
 Selfiequest::Application.routes.draw do
-  resources :selfies
-  resources :quests
+  resources :quests do
+    resources :selfies
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

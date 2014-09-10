@@ -9,33 +9,37 @@ RSpec.describe SelfiesController, :type => :controller do
     {}
   }
 
+  before do
+    @quest = create(:quest)
+  end
+
   describe "GET index" do
     it "assigns all selfies as @selfies" do
-      selfie = create(:selfie)
-      get :index, {}
+      selfie = create(:selfie, quest: @quest)
+      get :index, {quest_id: @quest.id}
       expect(assigns(:selfies)).to eq([selfie])
     end
   end
 
   describe "GET show" do
     it "assigns the requested selfie as @selfie" do
-      selfie = create(:selfie)
-      get :show, {:id => selfie.to_param}
+      selfie = create(:selfie, quest: @quest)
+      get :show, {quest_id: @quest.id, id: selfie.to_param}
       expect(assigns(:selfie)).to eq(selfie)
     end
   end
 
   describe "GET new" do
     it "assigns a new selfie as @selfie" do
-      get :new, {}
+      get :new, {quest_id: @quest.id}
       expect(assigns(:selfie)).to be_a_new(Selfie)
     end
   end
 
   describe "GET edit" do
     it "assigns the requested selfie as @selfie" do
-      selfie = create(:selfie)
-      get :edit, {:id => selfie.to_param}
+      selfie = create(:selfie, quest: @quest)
+      get :edit, {quest_id: @quest.id, id: selfie.to_param}
       expect(assigns(:selfie)).to eq(selfie)
     end
   end
@@ -44,19 +48,19 @@ RSpec.describe SelfiesController, :type => :controller do
     describe "with valid params" do
       it "creates a new Selfie" do
         expect {
-          post :create, {:selfie => valid_attributes}
+          post :create, {quest_id: @quest.id, selfie: valid_attributes}
         }.to change(Selfie, :count).by(1)
       end
 
       it "assigns a newly created selfie as @selfie" do
-        post :create, {:selfie => valid_attributes}
+        post :create, {quest_id: @quest.id, selfie: valid_attributes}
         expect(assigns(:selfie)).to be_a(Selfie)
         expect(assigns(:selfie)).to be_persisted
       end
 
       it "redirects to the created selfie" do
-        post :create, {:selfie => valid_attributes}
-        expect(response).to redirect_to(Selfie.last)
+        post :create, {quest_id: @quest.id, selfie: valid_attributes}
+        expect(response).to redirect_to([@quest, Selfie.last])
       end
     end
 
@@ -76,7 +80,7 @@ RSpec.describe SelfiesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       let(:new_attributes) {
-        {}
+        build(:selfie, quest: @quest).attributes
       }
 
       # it "updates the requested selfie" do
@@ -87,15 +91,15 @@ RSpec.describe SelfiesController, :type => :controller do
       # end
 
       it "assigns the requested selfie as @selfie" do
-        selfie = Selfie.create! valid_attributes
-        put :update, {:id => selfie.to_param, :selfie => valid_attributes}
+        selfie = create(:selfie, valid_attributes)
+        put :update, {quest_id: @quest.id, id: selfie.to_param, selfie: valid_attributes}
         expect(assigns(:selfie)).to eq(selfie)
       end
 
       it "redirects to the selfie" do
-        selfie = Selfie.create! valid_attributes
-        put :update, {:id => selfie.to_param, :selfie => valid_attributes}
-        expect(response).to redirect_to(selfie)
+        selfie = create(:selfie, valid_attributes)
+        put :update, {quest_id: @quest.id, id: selfie.to_param, selfie: valid_attributes}
+        expect(response).to redirect_to([@quest, selfie])
       end
     end
 
@@ -116,16 +120,16 @@ RSpec.describe SelfiesController, :type => :controller do
 
   describe "DELETE destroy" do
     it "destroys the requested selfie" do
-      selfie = Selfie.create! valid_attributes
+      selfie = create(:selfie, quest: @quest)
       expect {
-        delete :destroy, {:id => selfie.to_param}
+        delete :destroy, {quest_id: @quest.id, id: selfie.to_param}
       }.to change(Selfie, :count).by(-1)
     end
 
     it "redirects to the selfies list" do
-      selfie = Selfie.create! valid_attributes
-      delete :destroy, {:id => selfie.to_param}
-      expect(response).to redirect_to(selfies_url)
+      selfie = create(:selfie, quest: @quest)
+      delete :destroy, {quest_id: @quest.id, id: selfie.to_param}
+      expect(response).to redirect_to(quest_selfies_url(@quest))
     end
   end
 

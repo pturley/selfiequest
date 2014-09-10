@@ -10,10 +10,10 @@
   - @selfies.each do |selfie|
     %tr
       %td= image_tag selfie.image.url(:thumb)
-      %td= link_to 'Show', selfie
-      %td= link_to 'Edit', edit_selfie_path(selfie)
-      %td= link_to 'Destroy', selfie, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', [@quest, selfie]
+      %td= link_to 'Edit', edit_quest_selfie_path(@quest, selfie)
+      %td= link_to 'Destroy', [@quest, selfie], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Selfie', new_selfie_path
+= link_to 'New Selfie', new_quest_selfie_path(@quest)

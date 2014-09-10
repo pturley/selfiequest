@@ -1,4 +1,4 @@
 json.array!(@selfies) do |selfie|
   json.extract! selfie, :id
-  json.url selfie_url(selfie, format: :json)
+  json.url quest_selfie_url(@quest, selfie, format: :json)
 end

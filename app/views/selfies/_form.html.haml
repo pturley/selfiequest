@@ -1,4 +1,4 @@
-= form_for @selfie do |f|
+= form_for [@quest, @selfie] do |f|
   - if @selfie.errors.any?
     #error_explanation
       %h2= "#{pluralize(@selfie.errors.count, "error")} prohibited this selfie from being saved:"
@@ -7,5 +7,6 @@
           %li= msg
 
   = f.file_field :image
+  = f.hidden_field :quest_id, value: @quest.id
   .actions
     = f.submit 'Save'

@@ -55,6 +55,6 @@ class QuestsController < ApplicationController
     end
 
     def quest_params
-      params.require(:quest).permit(:name, :start, :end)
+      params.require(:quest).permit(:name, :start_datetime, :end_datetime)
     end
 end

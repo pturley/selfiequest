@@ -5,6 +5,6 @@
 = image_tag @selfie.image.url(:thumb)
 
 
-= link_to 'Edit', edit_selfie_path(@selfie)
+= link_to 'Edit', edit_quest_selfie_path(@quest, @selfie)
 \|
-= link_to 'Back', selfies_path
+= link_to 'Back', quest_selfies_path(@quest)
