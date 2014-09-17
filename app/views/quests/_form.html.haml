@@ -13,12 +13,18 @@
         = f.text_field :name, :class => "form-control"
       = f.label :start_datetime
       .input-group.date.datetimepicker
-        = f.text_field :start_datetime, :class => "form-control"
+        = f.text_field :start_datetime,
+            :value => @quest.start_datetime.try(:strftime, "%Y-%m-%d %H:%M"),
+            :class => "form-control",
+            'data-date-format' => "YYYY-MM-DD HH:mm"
         %span.input-group-addon
           %span.glyphicon.glyphicon-calendar
       = f.label :end_datetime
       .input-group.date.datetimepicker
-        = f.text_field :end_datetime, :class => "form-control"
+        = f.text_field :end_datetime,
+          :value => @quest.end_datetime.try(:strftime, "%Y-%m-%d %H:%M"),
+            :class => "form-control",
+            'data-date-format' => "YYYY-MM-DD HH:mm"
         %span.input-group-addon
           %span.glyphicon.glyphicon-calendar
 
