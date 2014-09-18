@@ -3,6 +3,14 @@ Selfiequest::Application.routes.draw do
     resources :selfies
   end
 
+  resources :users, only: [] do
+    member do
+      get :login
+    end
+  end
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
