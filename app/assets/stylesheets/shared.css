@@ -1,0 +1,23 @@
+body {
+	font-weight: 300;
+}
+
+.banner span {
+	font-size: 24pt;
+	font-weight: 600;
+	position: relative;
+	top: 5px;
+}
+
+.logo {
+	width: 13%;
+}
+
+.hSelfie {
+	color: #26BDCF;
+}
+
+.hQuest {
+	color: #EF5BA1;
+}
+

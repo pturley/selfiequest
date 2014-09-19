@@ -2,8 +2,14 @@
 %html
   %head
     %title Selfiequest
-    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    %link{:rel => :stylesheet, :type => :"text/css", :href => "https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800"}
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true 
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+
+    .banner
+      = image_tag("awayDayLogo.png", :class => "logo")
+      %span.hSelfie Selfie
+      %span.hQuest Quest
     = yield
