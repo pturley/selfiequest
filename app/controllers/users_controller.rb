@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-
   def login
-    cookies[:user] = params[:id]
+    user = User.find(params[:id])
 
-    User.find(cookies[:user])
+    cookies[:user] = params[:id] if user && user.correct_id?(params[:id])
 
-    redirect_to quest_path
-
+    redirect_to quests_path
   end
 end
