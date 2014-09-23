@@ -16,4 +16,15 @@
 
 %br
 
-= link_to 'New Selfie', new_quest_selfie_path(@quest)
+= link_to new_quest_selfie_path(@quest), :class => "menu-btn", :id => "new-photo-button" do
+  = image_tag "cameraIcon.png"
+  %span Take a Photo
+= link_to quest_selfies_path(@quest), :class => "btn btn-default menu-btn", :id => "gallery-button" do
+  = image_tag "galleryIcon.png"
+  View Gallery
+= link_to quest_selfies_path(@quest), :class => "btn btn-default menu-btn", :id => "leaderboard-button" do
+  = image_tag "leaderboardIcon.png"
+  Leaderboard (in construction)
+= link_to quest_selfies_path(@quest), :class => "btn btn-default menu-btn", :id => "my-selfies-button" do
+  = image_tag "owngalleryIcon.png"
+  My Gallery (in construction)
