@@ -1,6 +1,23 @@
-@import './bootstrap_override.css.scss';
+/*
+ *
+ *= require bootstrap_override
+ *= require_tree .
+ *= require_self
+ */
 
-@import "bootstrap-sprockets";
-@import 'bootstrap';
-@import 'bootstrap-datetimepicker';
-@import './shared.css';
+body {
+  font-weight: 300;
+}
+
+.banner {
+	color: #EF5BA1;
+	font-size: 24pt;
+	font-weight: 600;
+	position: relative;
+	top: 5px;
+
+	em {
+		color: #26BDCF;
+		font-style: normal;
+	}
+}

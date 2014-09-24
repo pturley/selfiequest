@@ -14,7 +14,6 @@ gem 'puppet'
 gem 'pg'
 gem "paperclip", "~> 4.2"
 
-gem 'twitter-bootstrap-rails', '~> 3.2.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'

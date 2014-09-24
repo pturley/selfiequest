@@ -1,1 +1,30 @@
 $font-family-sans-serif: "Open Sans";
+
+@import "bootstrap-sprockets";
+@import 'bootstrap';
+@import 'bootstrap-datetimepicker';
+
+
+.content {
+  margin: 0 10% 0 10%;
+}
+
+.logo {
+  width: 13%;
+}
+
+.btn.menu-btn {
+  display: block;
+  width: 90%;
+  margin: 5px;
+  padding: 5px 5px;
+  text-align: left;
+  box-shadow: 1px 1px 10px #CCC;
+  border: none;
+
+
+  &:hover {
+    text-decoration: none;
+    box-shadow: 1px 1px 10px #AAA;
+  }
+}
