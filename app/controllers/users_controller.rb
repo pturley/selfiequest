@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_filter :authenticate_user!, only: [:login]
+
   def login
     user = User.find(params[:id])
 

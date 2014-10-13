@@ -11,6 +11,7 @@ RSpec.describe SelfiesController, :type => :controller do
 
   before do
     @quest = create(:quest)
+    allow(controller).to receive(:authenticate_user!)
   end
 
   describe "GET index" do
