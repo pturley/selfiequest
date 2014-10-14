@@ -1,5 +1,6 @@
 class SelfiesController < ApplicationController
   before_action :set_quest
+  before_action :authenticate_quest_for_user!
   before_action :set_selfie, only: [:show, :edit, :update, :destroy]
 
   def index

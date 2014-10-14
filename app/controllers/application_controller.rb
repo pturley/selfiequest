@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     @current_user = user if user && user.correct_id?(cookies[:user])
     render :status => :forbidden, :text => "You must login before accessing this page" unless @current_user
   end
+
+  def authenticate_quest_for_user!
+    render :status => :forbidden, :text => "You do not have access to view this quest" unless @current_user.quests.include?(@quest)
+  end
 end

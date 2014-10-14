@@ -1,8 +1,9 @@
 class QuestsController < ApplicationController
   before_action :set_quest, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_quest_for_user!, only: [:show, :edit, :update, :destroy]
 
   def index
-    @quests = Quest.all
+    @quests = @current_user.quests
   end
 
   def show
@@ -20,6 +21,7 @@ class QuestsController < ApplicationController
 
     respond_to do |format|
       if @quest.save
+        @current_user.quests << @quest
         format.html { redirect_to @quest, notice: 'Quest was successfully created.' }
         format.json { render action: 'show', status: :created, location: @quest }
       else
