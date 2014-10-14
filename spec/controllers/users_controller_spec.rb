@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe UsersController, :type => :controller do
   describe "GET login" do
     it "sets the user cookie if the user is valid" do
-      user = create(:user)
+      quest = create(:quest)
+      user = create(:user, quests: [quest])
 
       get :login, id: user.to_param
 
@@ -18,7 +19,8 @@ RSpec.describe UsersController, :type => :controller do
     end
 
     it "doesnt set the user cookie if the user doesnt have the correct id" do
-      user = create(:user)
+      quest = create(:quest)
+      user = create(:user, quests: [quest])
       param = "#{user.id}-Somebodyelse"
 
       get :login, id: param
