@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
     cookies[:user] = params[:id] if user && user.correct_id?(params[:id])
 
-    redirect_to quests_path
+    quest_id_to_redirect_to = params[:quest_id] ? params[:quest_id] : user.quests.first.id
+    redirect_to quest_path(quest_id_to_redirect_to)
   end
 end
